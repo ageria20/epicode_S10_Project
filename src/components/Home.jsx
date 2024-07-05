@@ -6,28 +6,30 @@ const Home = props => {
   const navigate = useNavigate;
 
   return (
-    <Container>
+    <Container className="border shadow rounded meteoContainer">
       <h2 className="text-center text-light mb-4 mt-4">{props.cityName.toUpperCase()}</h2>
-      <div className="d-flex justify-content-center">
+      <div className="mt-4 mb-4 align-items-end px-3 text-center">
+        <h1 className="degrees">{props.degrees}° C</h1>
+      </div>
+      <Container className="details d-flex justify-content-center mt-4 mb-4 align-middle px-3 text-center">
+        <div>
+          <h5 className="mb-0">{props.weatherCondition.toUpperCase()}</h5>
+          <p style={{ fontSize: "0.8rem" }}>
+            <span>
+              L:{props.lower}° C | H:{props.higher}° C
+            </span>
+          </p>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="500"
-          height="500"
+          width="40"
+          height="40"
           fill="currentColor"
-          className="mx-auto bi bi-brightness-high-fill "
+          className="ps-2 bi bi-brightness-high-fill "
           viewBox="0 0 16 16"
         >
           <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
         </svg>
-      </div>
-      <Container className="mt-4 mb-4 align-items-end px-3 text-center">
-        <h1 className="degrees">{props.degrees}° C</h1>
-        <h5 className="mb-0">{props.weatherCondition.toUpperCase()}</h5>
-        <p style={{ fontSize: "0.8rem" }}>
-          <span>
-            L:{props.lower}° C | H:{props.higher}° C
-          </span>
-        </p>
       </Container>
 
       <div className="d-flex justify-content-center" data-bs-theme="light">
@@ -46,10 +48,10 @@ const Home = props => {
           </svg>
         </h3>
       </div>
-      <Container className="bg-light text-secondary p-3 rounded">
-        <Row className="px-0 mt-5  mb-5 justify-content-between border-bottom">
-          <Col xs={6}>
-            <Container className="d-flex">
+      <Container className="bg-light text-secondary p-4 rounded mb-5 details shadow">
+        <Row className="px-2 mt-5  mb-2 justify-content-between text-center border-bottom">
+          <Col xs={12} md={4}>
+            <Container className="d-flex align-items-center">
               <h5>TODAY</h5>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,24 +66,28 @@ const Home = props => {
             </Container>
           </Col>
 
-          <Col xs={6}>
-            <h5 className="mb-0" style={{ fontSize: "1.2rem" }}>
-              {props.lower} °C / {props.higher}° C
-            </h5>
-            <p className="mb-0">{props.weatherCondition.toUpperCase()}</p>
+          <Col xs={12} md={4}>
+            <Container className="text-center mb-3">
+              <h5 className="mb-0" style={{ fontSize: "1.5rem" }}>
+                {props.lower} °C / {props.higher}° C
+              </h5>
+              <p className="mb-0">{props.weatherCondition.toUpperCase()}</p>
+            </Container>
           </Col>
         </Row>
-        <Row className="px-0 mt-5 justify-content-center">
-          <Col xs={6}>
-            <Container>
+        <Row className="px-0 mt-5 justify-content-between">
+          <Col xs={12} md={4}>
+            <Container className="text-center">
               <h5>HUMIDITY</h5>
               <h4>{props.humidity}%</h4>
             </Container>
           </Col>
 
-          <Col xs={6}>
-            <h5 className="ms-auto">WIND</h5>
-            <h4 className="mb-0">{props.windSpeed} Km/h</h4>
+          <Col xs={12} md={4}>
+            <Container className="text-center">
+              <h5>WIND</h5>
+              <h4 className="mb-0">{props.windSpeed} Km/h</h4>
+            </Container>
           </Col>
         </Row>
       </Container>
