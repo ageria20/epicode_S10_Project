@@ -5,8 +5,9 @@ import { useNavigate, useParams } from "react-router-dom";
 const Home = props => {
   const navigate = useNavigate;
 
-  const params = useParams();
-  console.log("UsePARAMS: ", params);
+  //   const params = useParams();
+  //   const city = params.name;
+  //   console.log("UsePARAMS: ", props.);
 
   return (
     <Container>

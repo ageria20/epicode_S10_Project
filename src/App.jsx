@@ -8,11 +8,11 @@ import Welcome from "./components/Welcome";
 
 function App() {
   const [lat, setLat] = useState("");
-  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
   const [lon, setLon] = useState("");
   const [weather, setWeather] = useState(null);
 
-  const geoFetch = async city => {
+  const geoFetch = async () => {
     try {
       const resp = await fetch(
         `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=265b8837f7efbcc2d9a5014615a0eca9`
@@ -21,7 +21,6 @@ function App() {
         const result = await resp.json();
         setLat(result[0].lat);
         setLon(result[0].lon);
-        setCountry(result[0]);
       }
     } catch (err) {
       console.log(err);
@@ -44,13 +43,14 @@ function App() {
 
   const degreesConversion = degreesValue => (degreesValue / 10).toFixed(0);
   const speedinKm = speedValue => (speedValue * 3.6).toFixed(2);
+  const getCity = city => setCity(city);
 
   useEffect(() => {
     geoFetch();
     currentDataFetch();
     console.log("Render Mounted");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [city]);
 
   console.log("Lat", lat, "Lon", lon);
   console.log(weather);
@@ -59,14 +59,14 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Welcome fetchData={geoFetch()} />} /> */}
+          <Route path="/" element={<Welcome fetchCity={getCity} />} />
           <Route
-            path="/"
+            path="/:city"
             element={
               weather && (
                 <Home
-                  cityName={country.name}
-                  region={country.state}
+                  cityName={city.name}
+                  region={city.state}
                   degrees={degreesConversion(weather.main.feels_like)}
                   weatherCondition={weather.weather[0].description}
                   lower={degreesConversion(weather.main.temp_min)}

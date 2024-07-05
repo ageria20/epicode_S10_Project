@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Welcome = props => {
   const [city, setCity] = useState("");
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <main>
       <Container className="bg-transparent my-4 rounded p-3">
@@ -14,7 +14,8 @@ const Welcome = props => {
           className="mt-3"
           variant="primary"
           onClick={() => {
-            props.fetchData(city);
+            props.fetchCity(city);
+            navigate("/:" + city);
           }}
         >
           Search
