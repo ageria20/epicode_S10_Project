@@ -46,7 +46,7 @@ const Home = props => {
           </svg>
         </h3>
       </div>
-      <Container>
+      <Container className="bg-light text-secondary p-3 rounded">
         <Row className="px-0 mt-5  mb-5 justify-content-between border-bottom">
           <Col xs={6}>
             <Container className="d-flex">
