@@ -30,7 +30,7 @@ const Home = props => {
         </p>
       </Container>
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center" data-bs-theme="light">
         <h3>
           Next Days{" "}
           <svg
