@@ -1,18 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Home = props => {
   const navigate = useNavigate;
 
-  //   const params = useParams();
-  //   const city = params.name;
-  //   console.log("UsePARAMS: ", props.);
-
   return (
     <Container>
-      <h2 className="text-center text-light mb-4 mt-4">{props.cityName}</h2>
-      <h3 className="text-center text-light mb-4 mt-4">({props.region})</h3>
+      <h2 className="text-center text-light mb-4 mt-4">{props.cityName.toUpperCase()}</h2>
       <div className="d-flex justify-content-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,9 +47,9 @@ const Home = props => {
         </h3>
       </div>
       <Container>
-        <Row className="px-0 mt-5 justify-content-between">
+        <Row className="px-0 mt-5  mb-5 justify-content-between border-bottom">
           <Col xs={6}>
-            <Container className="d-flex ">
+            <Container className="d-flex">
               <h5>TODAY</h5>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

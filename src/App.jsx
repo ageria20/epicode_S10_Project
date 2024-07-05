@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import ForecastDays from "./components/Forecast";
 import Welcome from "./components/Welcome";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [lat, setLat] = useState("");
@@ -50,23 +51,22 @@ function App() {
     currentDataFetch();
     console.log("Render Mounted");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [city]);
+  }, [city, lon, lat]);
 
-  console.log("Lat", lat, "Lon", lon);
-  console.log(weather);
+  // console.log("Lat", lat, "Lon", lon);
+  // console.log(weather);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Welcome fetchCity={getCity} />} />
+          <Route path="/" element={<Welcome getCity={getCity} />} />
           <Route
-            path="/:city"
+            path={"/:" + city}
             element={
               weather && (
                 <Home
-                  cityName={city.name}
-                  region={city.state}
+                  cityName={city}
                   degrees={degreesConversion(weather.main.feels_like)}
                   weatherCondition={weather.weather[0].description}
                   lower={degreesConversion(weather.main.temp_min)}
@@ -77,6 +77,7 @@ function App() {
               )
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -14,7 +14,7 @@ const Welcome = props => {
           className="mt-3"
           variant="primary"
           onClick={() => {
-            props.fetchCity(city);
+            props.getCity(city);
             navigate("/:" + city);
           }}
         >
