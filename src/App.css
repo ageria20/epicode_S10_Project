@@ -5,6 +5,11 @@ body {
   color: white;
 }
 
+h5,
+h4 {
+  font-size: 1rem;
+}
+
 .degrees {
   font-size: 5rem;
   margin-top: auto;
@@ -14,12 +19,22 @@ body {
   width: 70%;
 }
 
-.meteoContainer,
-.welcome {
+.meteoContainer {
   width: 50%;
   height: 100%;
   margin-top: 3rem;
   background-color: #332462da;
+}
+
+.welcomeContainer {
+  width: 50%;
+  height: 100%;
+  margin-top: 3rem;
+  background-color: #332462da;
+}
+.searchBtn {
+  border: none;
+  background-color: violet;
 }
 
 @media screen and (min-width: 600px) {

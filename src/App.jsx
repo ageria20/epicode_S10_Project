@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import ForecastDays from "./components/Forecast";
+
 import Welcome from "./components/Welcome";
 import NotFound from "./components/NotFound";
 
@@ -73,6 +73,7 @@ function App() {
                   higher={degreesConversion(weather.main.temp_max)}
                   humidity={degreesConversion(weather.main.humidity)}
                   windSpeed={speedinKm(weather.wind.speed)}
+                  iconWeather={weather.weather[0].icon}
                 />
               )
             }
