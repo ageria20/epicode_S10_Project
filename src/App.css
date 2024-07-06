@@ -32,9 +32,15 @@ h4 {
   margin-top: 3rem;
   background-color: #332462da;
 }
-.searchBtn {
+.searchBtn,
+.homeBtn {
   border: none;
   background-color: violet;
+}
+
+.searchBtn:hover,
+.homeBtn:hover {
+  background-color: #332462da;
 }
 
 @media screen and (min-width: 600px) {

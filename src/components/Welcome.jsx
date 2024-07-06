@@ -3,9 +3,27 @@ import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const Welcome = props => {
+const Welcome = () => {
   const [city, setCity] = useState("");
   const navigate = useNavigate();
+
+  const geoFetch = async () => {
+    try {
+      const resp = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=265b8837f7efbcc2d9a5014615a0eca9`
+      );
+      if (resp.ok) {
+        const result = await resp.json();
+        if (result.length > 0) {
+          navigate(`/details/lat=${result[0].lat}&lon=${result[0].lon}`);
+          //
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <main>
       <Container className="my-4 rounded p-3 welcomeContainer">
@@ -14,8 +32,7 @@ const Welcome = props => {
         <Button
           className="mt-3 searchBtn rounded"
           onClick={() => {
-            props.getCity(city);
-            navigate("/:" + city);
+            geoFetch();
           }}
         >
           Search
