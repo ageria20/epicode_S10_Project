@@ -63,9 +63,9 @@ const Home = () => {
           <h2>WEATHER INFO </h2>
         </div>
         <Container className="bg-light text-secondary p-4 rounded mb-5 details shadow">
-          <Row className="px-2 mt-5  mb-2 justify-content-between text-center border-bottom">
+          <Row className="px-2 mt-5  mb-2 justify-content-between text-center">
             <Col xs={12} md={5}>
-              <Container className="d-flex flex-column align-items-center text-center">
+              <Container className="d-flex flex-column align-items-center text-center border rounded-2 py-3">
                 <h5>TODAY</h5>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const Home = () => {
             </Col>
 
             <Col xs={12} md={5}>
-              <Container className="d-flex flex-column align-items-center justidy-content-center text-center mb-3">
+              <Container className="d-flex flex-column align-items-center justidy-content-center text-center border rounded-2 py-4">
                 <h5 className="mb-3">
                   Low {degreesConversion(weather.main.temp_min)} °C / High {degreesConversion(weather.main.temp_max)}° C
                 </h5>
@@ -89,9 +89,9 @@ const Home = () => {
               </Container>
             </Col>
           </Row>
-          <Row className="px-0 mt-5 justify-content-between">
+          <Row className="px-0 mt-3 justify-content-between">
             <Col xs={12} md={5}>
-              <Container className=" d-flex flex-column text-center">
+              <Container className=" d-flex flex-column text-center border rounded-2 py-3">
                 <h5>HUMIDITY</h5>
                 <Container>
                   <svg
@@ -110,7 +110,7 @@ const Home = () => {
             </Col>
 
             <Col xs={12} md={5}>
-              <Container className="text-center">
+              <Container className="text-center border rounded-2 py-3">
                 <h5>WIND</h5>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
