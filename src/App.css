@@ -43,8 +43,26 @@ h4 {
   background-color: #332462da;
 }
 
+.info {
+  background-color: #a18ce0;
+  color: white;
+}
+
+.todayIcon:hover {
+  animation: spin 4s linear infinite;
+}
+
 @media screen and (min-width: 600px) {
   .meteoContainer {
     width: 100%;
+  }
+}
+
+@keyframes spin {
+  from {
+    trasform: rotate(0deg);
+  }
+  to {
+    trasform: rotate(360deg);
   }
 }
