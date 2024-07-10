@@ -3,6 +3,7 @@
 body {
   font-family: "Inter", serif;
   color: white;
+  background-color: #332462da;
 }
 
 h5,
@@ -20,14 +21,14 @@ h4 {
 }
 
 .meteoContainer {
-  width: 50%;
+  width: 100%;
   height: 100%;
   margin-top: 3rem;
   background-color: #332462da;
 }
 
 .welcomeContainer {
-  width: 50%;
+  width: 100%;
   height: 100%;
   margin-top: 3rem;
   background-color: #332462da;

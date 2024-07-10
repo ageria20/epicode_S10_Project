@@ -1,13 +1,25 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Slider from "react-slick";
+import clearSky from "../assets/clear-day.svg";
+import celsius from "../assets/celsius.svg";
 
 const Home = () => {
   const params = useParams();
   const country = params.country;
   console.log(country);
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+  };
 
   const [weather, setWeather] = useState(null);
+  const [forecastWeather, setForecastWeather] = useState(null);
 
   const currentDataFetch = async () => {
     try {
@@ -23,11 +35,34 @@ const Home = () => {
     }
   };
 
+  const forecastFetch = async () => {
+    try {
+      const resp = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?${country}&appid=265b8837f7efbcc2d9a5014615a0eca9`
+      );
+      if (resp.ok) {
+        const result = await resp.json();
+        setForecastWeather(result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const degreesConversion = degreesValue => (degreesValue / 10).toFixed(0);
   const speedinKm = speedValue => (speedValue * 3.6).toFixed(2);
 
+  const getHours = dataTime => {
+    const date = new Date(dataTime * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return `${hours.toString().padStart(2, 0)}:${minutes.toString().padStart(2, 0)}`;
+  };
+
   useEffect(() => {
     currentDataFetch();
+    forecastFetch();
+    console.log("FORECAST: ", forecastWeather);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country]);
 
@@ -67,16 +102,7 @@ const Home = () => {
             <Col xs={12} md={5}>
               <Container className="d-flex flex-column align-items-center text-center border rounded-2 py-3 info">
                 <h5>TODAY</h5>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  className="mb-3 bi bi-brightness-high-fill todayIcon"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
-                </svg>
+                <Image src={clearSky} width="40" />
               </Container>
             </Col>
 
@@ -137,6 +163,36 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
+        {forecastWeather && (
+          <Container className="forecastContainer text-start w-50 mb-4">
+            <h3>Next Hours</h3>
+            <Slider {...settings}>
+              <div>
+                <h5>{getHours(forecastWeather.list[0].dt)}</h5>
+                <Image src={clearSky} width="30" />
+                <h5>
+                  {degreesConversion(forecastWeather.list[0].main.temp)}
+                  <Image src={celsius} width="50" />
+                </h5>
+              </div>
+              <div>
+                <h5>{getHours(forecastWeather.list[1].dt)}</h5>
+                <Image src={clearSky} width="30" />
+                <h5>{degreesConversion(forecastWeather.list[1].main.temp)}</h5>
+              </div>
+              <div>
+                <h5>{getHours(forecastWeather.list[2].dt)}</h5>
+                <Image src={clearSky} width="30" />
+                <h5>{degreesConversion(forecastWeather.list[2].main.temp)}</h5>
+              </div>
+              <div>
+                <h5>{getHours(forecastWeather.list[3].dt)}</h5>
+                <Image src={clearSky} width="30" />
+                <h5>{degreesConversion(forecastWeather.list[3].main.temp)}</h5>
+              </div>
+            </Slider>
+          </Container>
+        )}
       </Container>
     )
   );
