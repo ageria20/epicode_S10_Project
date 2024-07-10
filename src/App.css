@@ -51,6 +51,13 @@ h4 {
 .todayIcon:hover {
   animation: spin 4s linear infinite;
 }
+.windIcon:hover {
+  animation: flow 3s linear infinite;
+}
+
+.humidityIcon:hover {
+  animation: drop 3s linear infinite;
+}
 
 @media screen and (min-width: 600px) {
   .meteoContainer {
@@ -60,9 +67,31 @@ h4 {
 
 @keyframes spin {
   from {
-    trasform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    trasform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flow {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(50%);
+    transform: 1;
+  }
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    transform: 1;
   }
 }
