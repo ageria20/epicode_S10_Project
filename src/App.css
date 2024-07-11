@@ -56,8 +56,16 @@ h4 {
   animation: flow 3s linear infinite;
 }
 
-.humidityIcon:hover {
-  animation: drop 3s linear infinite;
+.humidityIcon {
+  animation: upDown 4s linear infinite;
+}
+
+.cityName {
+  animation: load 1s ease-in;
+}
+
+.clearSky {
+  animation: upDown 4s linear infinite;
 }
 
 @media screen and (min-width: 600px) {
@@ -93,6 +101,35 @@ h4 {
   }
   to {
     transform: translateY(0%);
-    transform: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes load {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(-10%);
+  }
+  25% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-10%);
   }
 }

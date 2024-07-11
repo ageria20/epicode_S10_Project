@@ -28,15 +28,15 @@ const Welcome = () => {
     <main>
       <Container className="my-4 rounded p-3 welcomeContainer">
         <h1>Welcome</h1>
-        <Form.Control size="lg" type="text" placeholder="City" onChange={e => setCity(e.target.value)} />
-        <Button
-          className="mt-3 searchBtn rounded"
-          onClick={() => {
+        <Form
+          onSubmit={e => {
+            e.preventDefault();
             geoFetch();
           }}
         >
-          Search
-        </Button>
+          <Form.Control size="lg" type="text" placeholder="City" onChange={e => setCity(e.target.value)} />
+          <Button className="mt-3 searchBtn rounded">Search</Button>
+        </Form>
       </Container>
     </main>
   );
