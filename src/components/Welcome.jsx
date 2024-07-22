@@ -35,7 +35,9 @@ const Welcome = () => {
           }}
         >
           <Form.Control size="lg" type="text" placeholder="City" onChange={e => setCity(e.target.value)} />
-          <Button className="mt-3 searchBtn rounded">Search</Button>
+          <Button className="mt-3 searchBtn rounded" type="submit">
+            Search
+          </Button>
         </Form>
       </Container>
     </main>
