@@ -3,7 +3,7 @@
 body {
   font-family: "Inter", serif;
   color: white;
-  background-color: violet;
+  background-color: #332462da;
 }
 
 h5,
@@ -24,7 +24,7 @@ h4 {
   width: 100%;
   height: 100%;
   margin-top: 3rem;
-  background-color: transparent;
+  background-color: #332462da;
 }
 
 .welcomeContainer {
