@@ -184,7 +184,7 @@ const Home = () => {
                 <Row className="mt-3 overflow-x-auto">
                   {forecastWeather.slice(1, 8).map((hour, index) => {
                     return (
-                      <Col className="mx-3  overflow-x-auto" key={index}>
+                      <Col className="mx-3 " key={index}>
                         <h5>{getHours(hour.dt)}</h5>
                         <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                         <h5>{degreesConversion(hour.main.temp)}</h5>
@@ -202,7 +202,7 @@ const Home = () => {
                 <Row className="mt-3 overflow-x-auto">
                   {forecastWeather.slice(9, 16).map((hour, index) => {
                     return (
-                      <Col className="mx-3  overflow-x-auto" key={index}>
+                      <Col className="mx-3  " key={index}>
                         <h5>{getHours(hour.dt)}</h5>
                         <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                         <h5>{degreesConversion(hour.main.temp)}</h5>
@@ -220,7 +220,7 @@ const Home = () => {
                 <Row className="mt-3 overflow-x-auto">
                   {forecastWeather.slice(17, 24).map((hour, index) => {
                     return (
-                      <Col className="mx-3  overflow-x-auto" key={index}>
+                      <Col className="mx-3  " key={index}>
                         <h5>{getHours(hour.dt)}</h5>
                         <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                         <h5>{degreesConversion(hour.main.temp)}</h5>
