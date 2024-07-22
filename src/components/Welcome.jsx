@@ -10,7 +10,7 @@ const Welcome = () => {
   const geoFetch = async () => {
     try {
       const resp = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=265b8837f7efbcc2d9a5014615a0eca9`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=265b8837f7efbcc2d9a5014615a0eca9`
       );
       if (resp.ok) {
         const result = await resp.json();
