@@ -68,6 +68,11 @@ h4 {
   animation: upDown 4s linear infinite;
 }
 
+#rowTwoDays {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 @media screen and (min-width: 600px) {
   .meteoContainer {
     width: 100%;
