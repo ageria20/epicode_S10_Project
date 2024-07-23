@@ -68,9 +68,8 @@ h4 {
   animation: upDown 4s linear infinite;
 }
 
-.overflow-x-auto {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Aggiunge lo scrolling fluido sui dispositivi iOS */
+.hours {
+  background-color: #332462da;
 }
 
 @media screen and (min-width: 600px) {

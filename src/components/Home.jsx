@@ -177,16 +177,18 @@ const Home = () => {
           <Container className="text-start w-75 mb-4">
             <h3>Next Days</h3>
             <Row className="d-flex align-items-center  ">
-              <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
+              <Col className="d-flex flex-column align-items-center  rounded-2 m-2 py-2 hours">
                 <h5>{getDay(tomorrow.dt)}</h5>
                 {/* <Image src={tomorrow.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                 <h5>{degreesConversion(tomorrow.main.temp)}</h5> */}
                 <Row className="mt-3  flex-nowrap overflow-x-auto w-100">
                   {forecastWeather.slice(1, 8).map((hour, index) => {
                     return (
-                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
-                        <Col className="mx-1 text-center">
-                          <h5>{getHours(hour.dt)}</h5>
+                      <div className="px-0 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className=" w-100">
+                          <div className="hours w-100 py-1">
+                            <h5>{getHours(hour.dt)}</h5>
+                          </div>
                           <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                           <h5>{degreesConversion(hour.main.temp)}</h5>
                         </Col>
@@ -197,16 +199,18 @@ const Home = () => {
               </Col>
             </Row>
             <Row className="d-flex align-items-center  ">
-              <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
+              <Col className="d-flex flex-column align-items-center  rounded-2 m-2 py-2 hours">
                 <h5>{getDay(theDayAfter.dt)}</h5>
                 {/* <Image src={theDayAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                 <h5>{degreesConversion(theDayAfter.main.temp)}</h5> */}
-                <Row className="mt-3 flex-nowrap overflow-x-auto w-100">
+                <Row className="mt-3 flex-nowrap  overflow-x-auto w-100">
                   {forecastWeather.slice(9, 16).map((hour, index) => {
                     return (
-                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
-                        <Col className="mx-1 w-100">
-                          <h5>{getHours(hour.dt)}</h5>
+                      <div className="px-0 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className=" w-100">
+                          <div className="hours w-100 py-1">
+                            <h5>{getHours(hour.dt)}</h5>
+                          </div>
                           <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                           <h5>{degreesConversion(hour.main.temp)}</h5>
                         </Col>
@@ -217,16 +221,18 @@ const Home = () => {
               </Col>
             </Row>
             <Row className="d-flex align-items-center ">
-              <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
+              <Col className="d-flex flex-column align-items-center  rounded-2 m-2 py-2 hours">
                 <h5>{getDay(twoDaysAfter.dt)}</h5>
                 {/* <Image src={twoDaysAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                 <h5>{degreesConversion(twoDaysAfter.main.temp)}</h5> */}
                 <Row className="mt-3 flex-nowrap overflow-x-auto w-100">
                   {forecastWeather.slice(17, 24).map((hour, index) => {
                     return (
-                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
-                        <Col className="text-center">
-                          <h5>{getHours(hour.dt)}</h5>
+                      <div className="px-0 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className=" w-100">
+                          <div className="hours w-100 py-1">
+                            <h5>{getHours(hour.dt)}</h5>
+                          </div>
                           <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
                           <h5>{degreesConversion(hour.main.temp)}</h5>
                         </Col>
