@@ -90,7 +90,7 @@ const Home = () => {
 
   return (
     weather && (
-      <Container className="border shadow rounded meteoContainer">
+      <Container>
         <h2 className="text-center text-light mb-4 mt-4 cityName">{weather.name.toUpperCase()}</h2>
         <div className="mt-4 mb-4 align-items-end px-3 text-center">
           <h1 className="degrees">{degreesConversion(weather.main.feels_like)} °C</h1>
