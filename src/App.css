@@ -68,9 +68,9 @@ h4 {
   animation: upDown 4s linear infinite;
 }
 
-#rowTwoDays {
+.overflow-x-auto {
   overflow-x: auto;
-  white-space: nowrap;
+  -webkit-overflow-scrolling: touch; /* Aggiunge lo scrolling fluido sui dispositivi iOS */
 }
 
 @media screen and (min-width: 600px) {

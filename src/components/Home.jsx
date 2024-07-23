@@ -179,16 +179,18 @@ const Home = () => {
             <Row className="d-flex align-items-center  ">
               <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
                 <h5>{getDay(tomorrow.dt)}</h5>
-                <Image src={tomorrow.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                <h5>{degreesConversion(tomorrow.main.temp)}</h5>
-                <Row className="mt-3  flex-nowrap overflow-x-auto">
+                {/* <Image src={tomorrow.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                <h5>{degreesConversion(tomorrow.main.temp)}</h5> */}
+                <Row className="mt-3  flex-nowrap overflow-x-auto w-100">
                   {forecastWeather.slice(1, 8).map((hour, index) => {
                     return (
-                      <Col className="mx-1 no-shrink " key={index}>
-                        <h5>{getHours(hour.dt)}</h5>
-                        <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                        <h5>{degreesConversion(hour.main.temp)}</h5>
-                      </Col>
+                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className="mx-1 text-center">
+                          <h5>{getHours(hour.dt)}</h5>
+                          <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                          <h5>{degreesConversion(hour.main.temp)}</h5>
+                        </Col>
+                      </div>
                     );
                   })}
                 </Row>
@@ -197,16 +199,18 @@ const Home = () => {
             <Row className="d-flex align-items-center  ">
               <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
                 <h5>{getDay(theDayAfter.dt)}</h5>
-                <Image src={theDayAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                <h5>{degreesConversion(theDayAfter.main.temp)}</h5>
-                <Row className="mt-3 flex-nowrap overflow-x-auto">
+                {/* <Image src={theDayAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                <h5>{degreesConversion(theDayAfter.main.temp)}</h5> */}
+                <Row className="mt-3 flex-nowrap overflow-x-auto w-100">
                   {forecastWeather.slice(9, 16).map((hour, index) => {
                     return (
-                      <Col className="mx-1 no-shrink  " key={index}>
-                        <h5>{getHours(hour.dt)}</h5>
-                        <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                        <h5>{degreesConversion(hour.main.temp)}</h5>
-                      </Col>
+                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className="mx-1 w-100">
+                          <h5>{getHours(hour.dt)}</h5>
+                          <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                          <h5>{degreesConversion(hour.main.temp)}</h5>
+                        </Col>
+                      </div>
                     );
                   })}
                 </Row>
@@ -215,16 +219,18 @@ const Home = () => {
             <Row className="d-flex align-items-center ">
               <Col className="d-flex flex-column align-items-center border rounded-2 m-2 py-2 hours">
                 <h5>{getDay(twoDaysAfter.dt)}</h5>
-                <Image src={twoDaysAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                <h5>{degreesConversion(twoDaysAfter.main.temp)}</h5>
-                <Row className="mt-3 flex-nowrap overflow-x-auto">
+                {/* <Image src={twoDaysAfter.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                <h5>{degreesConversion(twoDaysAfter.main.temp)}</h5> */}
+                <Row className="mt-3 flex-nowrap overflow-x-auto w-100">
                   {forecastWeather.slice(17, 24).map((hour, index) => {
                     return (
-                      <Col className="" key={index}>
-                        <h5>{getHours(hour.dt)}</h5>
-                        <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
-                        <h5>{degreesConversion(hour.main.temp)}</h5>
-                      </Col>
+                      <div className="py-2 mx-3 info border-0 rounded-4 text-center w-25" key={index}>
+                        <Col className="text-center">
+                          <h5>{getHours(hour.dt)}</h5>
+                          <Image src={hour.weather[0].description === "clear sky" ? clearSky : cloudedSky} width="30" />
+                          <h5>{degreesConversion(hour.main.temp)}</h5>
+                        </Col>
+                      </div>
                     );
                   })}
                 </Row>
